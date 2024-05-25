@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className="min-w-full grid place-items-center overflow-x-hidden gap-4">
         <Nav />
         {children}
       </body>
