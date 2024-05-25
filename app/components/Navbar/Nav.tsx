@@ -16,7 +16,7 @@ const Nav = () => {
 
   return (
     <>
-      <div className="tablet:max-w-[80%] laptop:w-[1000px] w-full  p-1 px-4 flex items-center justify-center sticky top-2 bg-blue rounded-full">
+      <div className="tablet:max-w-[80%] laptop:w-[1000px] w-full  px-4 flex items-center justify-center fixed z-[100] top-2 bg-blue rounded-full">
         <div className="w-full h-fit flex items-center justify-start">
           <Image
             src={"/Assets/logo.png"}
@@ -56,13 +56,12 @@ const Nav = () => {
           />
         </div>
         <div className="tablet:hidden  w-full h-10 flex items-center justify-end">
-          <Button
-            children={<FaUser />}
-            variant={"default"}
-            size={"sm"}
-            className="py-2"
+          <button
             onClick={OptionChange}
-          />
+            className="text-white bg-dark p-2 rounded-full"
+          >
+            <FaUser />
+          </button>
 
           <div
             className={`w-fit grid gap-2 absolute top-[90%] bg-[white] px-4 py-2 rounded-md shadow-md transition-all duration-300 ${

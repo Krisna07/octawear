@@ -7,19 +7,15 @@ import { Direction } from "readline";
 const buttonVarients = cva("active:", {
   variants: {
     variant: {
-      default:
-        "px-4 py-2 button rounded-full flex relative items-center gap-2 bg-dark ",
-
+      default: " button rounded-full flex relative items-center gap-2 bg-dark ",
       primary: "bg-dark-500 rounded-lg text-[white] ",
-
       ghost:
         "bg-transparent text-dark  rounded shadow-[0_0_0_1px] shadow-[gray]/25",
-
       link: "bg-transparent text-dark  rounded shadow-[0_0_1px_0_gray]",
     },
     size: {
       default: " py-1 px-4 font-[600]",
-      sm: " text-[12px] py-1 px-2",
+      sm: " text-sm py-1 px-2",
       lg: " text-lg  px-8",
     },
     defaultVariants: {
@@ -77,19 +73,18 @@ const Button: FC<ButtonProps> = ({
       ref={buttonRef}
       className={cn(
         buttonVarients({ variant, size, className }),
-        "w-fit leading-tight relative overflow-hidden hover:text-[black] hover:scale-[1.1] duration-[400ms] box-border "
+        "w-fit  relative overflow-hidden hover:text-[black] hover:scale-[1.1] duration-[400ms] box-border "
       )}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       {...props}
     >
-      <div className="flex items-center justify-center gap-2 relative z-20 ">
-        {children}
-
+      <div className="flex items-center  gap-2 relative z-20 leading-tight ">
+        <span className="leading-[80%] ">{children}</span>
         {icon && !hoverIcon ? (
           <span>{Icon} </span>
         ) : (
-          <span>{!hover ? Icon : hoverIcon} </span>
+          <span>{!hover ? Icon : hoverIcon}</span>
         )}
       </div>
       {direction && (
