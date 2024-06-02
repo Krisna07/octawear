@@ -1,7 +1,7 @@
-import "./globals.css";
+import "../globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Nav from "./components/Navbar/Nav";
+import Nav from "../Navbar/Nav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-w-full grid place-items-center overflow-x-hidden gap-4">
+      <body className={"w-full h-full grid place-items-center"}>
         <Nav />
         {children}
       </body>

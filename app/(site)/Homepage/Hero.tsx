@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../Global_Component/Button";
+import Button from "../../components/Global_Component/Button";
 import { FaArrowRight } from "react-icons/fa";
 import { FaShop } from "react-icons/fa6";
 

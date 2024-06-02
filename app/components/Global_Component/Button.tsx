@@ -14,7 +14,7 @@ const buttonVarients = cva("active:", {
       link: "bg-transparent text-dark  rounded shadow-[0_0_1px_0_gray]",
     },
     size: {
-      default: " py-1 px-4 font-[600]",
+      default: "py-2 px-4 font-[600]",
       sm: " text-sm py-1 px-2",
       lg: " text-lg  px-8",
     },
