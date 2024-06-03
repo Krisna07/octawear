@@ -19,10 +19,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="w-screen max-h-screen grid place-items-center  gap-4 bg-dark-200 border-box">
+      <body className="w-full max-h-screen grid place-items-center  border-box">
         <Dashboardnav />
-        <Sidenav />
-        <main className="w-full laptop:w-[1000px] h-screen overflow-y-auto  py-[3rem] hidescrollbar border-box">
+        <main className="w-full laptop:w-[1000px] h-screen overflow-y-auto bg-[white]  hidescrollbar border-box relative z-[80] relative ">
+          <div className="sticky top-0 z-[90] ">
+            <Sidenav />
+          </div>
           {children}
         </main>
       </body>

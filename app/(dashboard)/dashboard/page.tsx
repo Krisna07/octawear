@@ -5,7 +5,8 @@ import { FaSun } from "react-icons/fa6";
 const page = () => {
   return (
     <div className="w-full ">
-      <section className="w-full grid place-items-center gap-1">
+      <section className="w-full grid place-items-center gap-1 ">
+        aaaaaaaa
         {/* <h2 className="text-3xl font-semibold leading-relaxed text-center flex items-center justify-center gap-2">
           <span className="relative -top-[2px]"> Good times User </span>
           <FaSun />
