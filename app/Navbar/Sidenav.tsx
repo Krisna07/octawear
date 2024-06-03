@@ -33,7 +33,7 @@ const Sidenav = () => {
   const width = 100 / menus.length;
 
   return (
-    <div className="laptop:h-full  laptop:w-[16rem] laptop:fixed w-full sticky z-[99]  laptop:top-16 left-0 laptop:bg-beige-600 bg-[gray]  text-dark px-4 border-box flex flex-col gap-4 justify-between overflow-x-scroll hidescrollbar">
+    <div className="laptop:h-full  laptop:w-[16rem]  w-full sticky z-[99]  left-0 laptop:bg-beige-600 bg-[gray]/25  text-dark px-4 border-box flex flex-col gap-4 justify-between overflow-x-scroll hidescrollbar">
       <div
         className="laptop:grid w-full flex gap-4 laptop:py-0 laptop:gap-0 py-2  text-2xl relative"
         onMouseLeave={() => {

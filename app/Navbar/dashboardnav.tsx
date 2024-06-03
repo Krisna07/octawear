@@ -1,11 +1,14 @@
+"use client";
 import React from "react";
 import { FaMagnifyingGlass, FaTriangleExclamation } from "react-icons/fa6";
 import Button from "../components/Global_Component/Button";
 import { BsTriangle } from "react-icons/bs";
 import { FaBars, FaPlus } from "react-icons/fa";
 import { BiUser } from "react-icons/bi";
+import { usePathname } from "next/navigation";
 
 const Dashboardnav = () => {
+  const path = usePathname();
   return (
     <div className="w-full px-4 laptop:h-[4rem] p-2 laptop:p-0 bg-beige-700 sticky top-0 z-[100] flex justify-between items-center text-dark gap-4 ">
       <div className="w-full tablet:flex items-center px-4  grid gap-4 ">
@@ -14,10 +17,15 @@ const Dashboardnav = () => {
             <span className=" bg-blue-100 rounded-full grid place-items-center p-2">
               <BsTriangle size={20} color="white" className="leading-tight " />
             </span>
-            <span className="font-semibold">Dashboard</span>
+            <span className="font-semibold">
+              {path.split("/")[1].toUpperCase()}
+            </span>
           </div>
-          <div className="flex gap-2 items-center tablet:hidden">
+          <div className="flex tablet:hidden items-center gap-2 bg-[gray]/25 px-4 p-2 rounded-full">
             <FaBars />
+            <span className="bg-blue-900 rounded-full grid place-items-center p-2">
+              <BiUser />
+            </span>
           </div>
         </div>
         <div className="relative w-full tablet:w-fit p-1 px-4 text-dark flex items-center gap-2 bg-blue-600 rounded-full shadow">
@@ -40,7 +48,6 @@ const Dashboardnav = () => {
         <div className="hidden tablet:flex items-center gap-2 bg-[gray]/25 px-4 p-2 rounded-full">
           <FaBars />
           <span className="bg-blue-900 rounded-full grid place-items-center p-2">
-            {" "}
             <BiUser />
           </span>
         </div>
