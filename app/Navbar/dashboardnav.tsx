@@ -10,7 +10,7 @@ import { usePathname } from "next/navigation";
 const Dashboardnav = () => {
   const path = usePathname();
   return (
-    <div className="w-full px-4 laptop:h-[4rem] p-2 laptop:p-0 bg-beige-700 sticky top-0 z-[100] flex justify-between items-center text-dark gap-4 ">
+    <div className="w-full px-4 laptop:h-[4rem] p-2 laptop:px-4 bg-beige-700 sticky top-0 z-[100] flex justify-between items-center text-dark gap-4 ">
       <div className="w-full tablet:flex items-center px-4  grid gap-4 ">
         <div className="tablet:w-fit w-full flex gap-2 items-center justify-between">
           <div className="flex gap-2 items-center">
