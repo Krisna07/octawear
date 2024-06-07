@@ -84,9 +84,9 @@ const page = () => {
         </h2>
       </div>
 
-      <div className="w-full grid grid-cols-1 laptop:grid-cols-2 gap-4">
+      <div className="w-full flex flex-wrap gap-4">
         <div className="bg-white rounded-lg shadow-md p-4">
-          <h2 className="text-xl font-medium mb-4">Monthly Revenue</h2>
+          <h2 className="w-full text-xl font-medium mb-4">Monthly Revenue</h2>
           {monthlyRevenue.length > 0 && (
             <LineChart
               width={600}
@@ -127,9 +127,7 @@ const page = () => {
             </AreaChart>
           )}
         </div>
-      </div>
 
-      <div className="grid grid-cols-1 laptop:grid-cols-2 gap-4 mt-8">
         <div className="bg-white rounded-lg shadow-md p-4">
           <h2 className="text-xl font-medium mb-4">Product Categories</h2>
           {productCategories.length > 0 && (

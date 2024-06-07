@@ -14,7 +14,7 @@ const Sidenav = () => {
     { name: "Inventory", icon: <MdInventory />, route: "/inventory" },
     { name: "Transactions", icon: <TbCoins />, route: "/transactions" },
     { name: "Settings", icon: <CiSettings />, route: "/settings" },
-    { name: "Logout", icon: <BiLogOut />, route: "/logout" },
+    { name: "Logout", icon: <BiLogOut />, route: "/" },
   ];
   const route = usePathname();
   const [path, setPath] = useState<string>(route);
