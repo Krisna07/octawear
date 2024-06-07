@@ -25,7 +25,7 @@ export default function RootLayout({
           <div className="sticky z-[90] ">
             <Sidenav />
           </div>
-          <div className="w-full h-full overflow-y-auto  border-box text-dark ">
+          <div className="w-full h-full overflow-y-auto  border-box text-dark pb-40">
             {children}
           </div>
         </main>

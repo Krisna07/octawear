@@ -31,8 +31,6 @@ const Sidenav = () => {
       const width = element?.offsetWidth;
       const left = element?.offsetLeft;
       setWidth(width);
-      console.log(width, left);
-
       setLeft(left);
     }
   };
@@ -100,8 +98,7 @@ const Sidenav = () => {
         <div
           style={{
             width: `${width}px`,
-            left: `${left > 0 && left}px`,
-            right: `${left < 0 && left}px`,
+            left: `${left}px`,
           }}
           className={`h-full top-0 bottom-0 absolute laptop:hidden grid place-items-center box-border transition-all `}
         >
