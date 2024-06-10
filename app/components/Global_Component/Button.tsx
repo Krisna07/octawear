@@ -7,7 +7,8 @@ import { Direction } from "readline";
 const buttonVarients = cva("active:", {
   variants: {
     variant: {
-      default: " button rounded-full flex relative items-center gap-2 bg-dark ",
+      default:
+        " button rounded flex relative items-center gap-2 bg-dark text-[white] ",
       primary: "bg-dark-500 rounded-lg text-[white] ",
       ghost:
         "bg-transparent text-dark  rounded shadow-[0_0_0_1px] shadow-[gray]/25",

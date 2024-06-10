@@ -17,7 +17,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={"w-full h-full grid place-items-center"}>
+      <body
+        className={
+          "max-w-full h-auto grid place-items-center bg-[black] text-[white]]"
+        }
+      >
         <Nav />
         {children}
       </body>

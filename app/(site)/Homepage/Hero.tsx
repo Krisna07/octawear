@@ -5,7 +5,7 @@ import { FaShop } from "react-icons/fa6";
 
 const Hero = () => {
   return (
-    <div className="w-screen h-screen flex items-center justify-center bg-gray-400 relative overflow-hidden">
+    <div className="w-full h-screen flex items-center justify-center bg-gray-400 relative overflow-hidden">
       {/* <div className="w-[500px] h-[500px] rounded  absolute inset-0  opacity-50 border-2 border-[white] border-dotted animate-[rotate_10s_linear_infinite] "></div>
       <div className="w-[500px] h-[500px] rounded  absolute inset-0  opacity-50 border-2 border-[white] border-dotted rotate-[45deg] animate-rotate"></div> */}
       <div
@@ -23,10 +23,10 @@ const Hero = () => {
           variant={"default"}
           Icon={<FaArrowRight />}
           icon={true}
-          size={"sm"}
+          size={"default"}
         />
         <div className="text-center">
-          <h2 className="leading-relaxed text-4xl font-semibold">
+          <h2 className="leading-relaxed text-4xl font-semibold text-[white]">
             The home of new fashion
           </h2>
           <p className="text-[white]/75 text-sm">
