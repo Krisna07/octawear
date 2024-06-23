@@ -43,7 +43,7 @@ const Sidenav = () => {
   const height = 100 / menus.length;
 
   return (
-    <div className="laptop:h-full  laptop:w-[16rem]  w-full sticky z-[99]  left-0 laptop:bg-beige-600 bg-[gray]/25  text-dark px-4 border-box flex flex-col gap-4 justify-between overflow-x-scroll hidescrollbar">
+    <div className="laptop:h-full    w-full sticky z-[99]  left-0 laptop:bg-beige-600  text-dark px-4 border-box flex flex-col gap-4 justify-between overflow-x-scroll hidescrollbar">
       <div
         className="laptop:grid w-[max-content] flex gap-4 laptop:py-0 laptop:gap-0 py-2  text-2xl relative "
         onMouseLeave={() => {
@@ -58,9 +58,7 @@ const Sidenav = () => {
             className={`${menu.name.toLocaleLowerCase()} rounded-full laptop:rounded relative z-20 py-[4px] laptop:py-4 px-[8px] laptop:w-full w-it flex items-center gap-[4px] text-sm  transition-all duration-300 cursor-pointer ${
               route === menu.route ? "text-beige-400" : ""
             } `}
-            onMouseEnter={(
-              event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-            ) => {
+            onMouseEnter={() => {
               setPath(menu.route);
               getWidth(menu.name.toLocaleLowerCase());
             }}
@@ -79,7 +77,7 @@ const Sidenav = () => {
           className={`w-full  absolute laptop:grid hidden place-items-center box-border transition-all`}
         >
           <div
-            className={`w-full h-1/2 bg-blue-600 rounded-tr rounded-br transition-all -left-[2px] duration-300 left-0 z-10 border-l-2 box-border grid place-items-center ${
+            className={`w-full h-1/2 bg-blue-600 rounded-tr rounded-br transition-all -left-[2px] duration-300 z-10 border-l-2 box-border grid place-items-center ${
               route === path ? "border-dark-100" : "border-dark-100/25"
             }`}
           ></div>
@@ -92,7 +90,7 @@ const Sidenav = () => {
           className={`w-full  absolute laptop:grid hidden place-items-center box-border transition-all`}
         >
           <div
-            className={`w-full h-1/2 bg-blue-600 rounded-tr rounded-br transition-all -left-[2px] duration-300 left-0 z-10 border-l-4 box-border grid place-items-center bg-dark-100 border-beige-300`}
+            className={`w-full h-1/2 rounded-tr rounded-br transition-all -left-[2px] duration-300 z-10 border-l-4 box-border grid place-items-center bg-dark-100 border-beige-300`}
           ></div>
         </div>
         <div
@@ -114,9 +112,9 @@ const Sidenav = () => {
           <div className="w-full h-3/6 bg-blue-200 rounded-full px-2"></div>
         </div>
       </div>
-      <div className="bg-[white] laptop:bg-beige-600 rounded-full laptop:rounded py-[4px] laptop:py-4 px-4 laptop:w-full w-fit hidden laptop:flex items-center gap-2 text-sm hover:bg-blue-600 transition-all duration-300 absolute bottom-20 left-0">
+      {/* <div className="bg-[white] laptop:bg-beige-600 rounded-full laptop:rounded py-[4px] laptop:py-4 px-4 laptop:w-full w-fit hidden laptop:flex items-center gap-2 text-sm hover:bg-blue-600 transition-all duration-300 absolute bottom-20 left-0">
         <BiLogOut /> Logout
-      </div>
+      </div> */}
     </div>
   );
 };

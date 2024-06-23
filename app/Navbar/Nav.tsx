@@ -1,7 +1,8 @@
 "use client";
+import Button from "@/app/components/Global_Component/Button";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import Button from "../components/Global_Component/Button";
+
 import { FaArrowRight, FaChevronRight, FaUser } from "react-icons/fa";
 
 const Nav = () => {

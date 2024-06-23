@@ -13,14 +13,14 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-      // animation: {
-      //   gradient: "gradient 8s linear infinite",
-      // },
-      // keyframes: {
-      //   gradient: {
-      //     to: { "background-position": "200% center" },
-      //   },
-      // },
+      animation: {
+        gradient: "gradient 8s linear infinite",
+      },
+      keyframes: {
+        gradient: {
+          to: { "background-position": "200% center" },
+        },
+      },
     },
     colors: {
       blue: {

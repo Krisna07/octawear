@@ -7,17 +7,15 @@ import { Direction } from "readline";
 const buttonVarients = cva("active:", {
   variants: {
     variant: {
-      default:
-        " button rounded flex relative items-center gap-2 bg-dark text-[white] ",
-      primary: "bg-dark-500 rounded-lg text-[white] ",
-      ghost:
-        "bg-transparent text-dark  rounded shadow-[0_0_0_1px] shadow-[gray]/25",
+      default: "bg-dark-100 text-beige-900 rounded ",
+      primary: "bg-magenta-300 rounded text-beige-900 ",
+      ghost: "shadow-[0_0_1px_0_gray] rounded-full",
       link: "bg-transparent text-dark  rounded shadow-[0_0_1px_0_gray]",
     },
     size: {
-      default: "py-2 px-4 font-[600]",
-      sm: " text-sm py-1 px-2",
-      lg: " text-lg  px-8",
+      default: "text-[20px] py-2 px-4 leading-[110%]",
+      sm: " text-[12px] py-1 px-2 leading-[90%]",
+      lg: " text-[32px] px-4 py-1 leading-[150%]",
     },
     defaultVariants: {
       variant: "default",
@@ -37,8 +35,8 @@ interface ButtonProps
 const Button: FC<ButtonProps> = ({
   className,
   children,
-  variant,
-  size,
+  variant = "default",
+  size = "default",
   icon,
   Icon,
   hoverIcon,
@@ -74,14 +72,14 @@ const Button: FC<ButtonProps> = ({
       ref={buttonRef}
       className={cn(
         buttonVarients({ variant, size, className }),
-        "w-fit  relative overflow-hidden hover:text-[black] hover:scale-[1.1] duration-[400ms] box-border "
+        "flex w-fit h-fit items-center gap-2 relative overflow-hidden "
       )}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       {...props}
     >
-      <div className="flex items-center  gap-2 relative z-20 leading-tight ">
-        <span className="leading-[80%] ">{children}</span>
+      <div className="flex items-center  gap-2 relative  leading-tight z-20 ">
+        {children}
         {icon && !hoverIcon ? (
           <span>{Icon} </span>
         ) : (
@@ -91,7 +89,7 @@ const Button: FC<ButtonProps> = ({
       {direction && (
         <div
           style={{ [direction]: hover ? 0 : "-200%" }}
-          className={`w-full h-full scale-[200%] absolute  duration-[400ms] bg-gradient-to-tr from-magenta  to-blue transition-all z-10`}
+          className={`w-full h-full scale-[200%] absolute  duration-[400ms] bg-gradient-to-tr from-magenta  to-blue-600 transition-all z-10`}
         />
       )}
     </button>

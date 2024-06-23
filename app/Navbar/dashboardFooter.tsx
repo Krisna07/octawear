@@ -1,5 +1,6 @@
+import Button from "@/app/components/Global_Component/Button";
 import React from "react";
-import Button from "../components/Global_Component/Button";
+
 import { BiLogOut } from "react-icons/bi";
 
 const DashboardFooter = () => {

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { FaMagnifyingGlass, FaTriangleExclamation } from "react-icons/fa6";
-import Button from "../components/Global_Component/Button";
+
 import { BsTriangle } from "react-icons/bs";
 import { FaBars, FaPlus } from "react-icons/fa";
 import { BiUser } from "react-icons/bi";
@@ -37,12 +37,6 @@ const Dashboardnav = () => {
             className="tablet:w-[15rem] w-full p-1 px-2 bg-[transparent] outline-none text-sm "
           />
         </div>
-
-        {/* <div className=" flex gap-2 font-semibold">
-          <span>Home</span>
-          <span>Items</span>
-          <span>Analytics</span>
-        </div> */}
       </div>
       <div className="hidden tablet:flex gap-2 items-center">
         <div className="hidden tablet:flex items-center gap-2 bg-[gray]/25 px-4 p-2 rounded-full">
