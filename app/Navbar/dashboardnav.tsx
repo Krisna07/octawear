@@ -1,23 +1,29 @@
 "use client";
 import React from "react";
-import { FaMagnifyingGlass, FaTriangleExclamation } from "react-icons/fa6";
-
-import { BsTriangle } from "react-icons/bs";
+import { FaMagnifyingGlass } from "react-icons/fa6";
 import { FaBars, FaPlus } from "react-icons/fa";
 import { BiUser } from "react-icons/bi";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const Dashboardnav = () => {
   const path = usePathname();
   return (
-    <div className="w-full px-4 laptop:h-[4rem] p-2 laptop:px-4 bg-beige-700 sticky top-0 z-[100] flex justify-between items-center text-dark gap-4 ">
-      <div className="w-full tablet:flex items-center px-4  grid gap-4 ">
+    <div
+      className="w-full px-4 p-2 laptop:px-4 bg-beige-700 sticky top-0 z-[100] flex justify-between items-center text-dark gap-4"
+      style={{ fontFamily: "Roboto, sans-serif" }}
+    >
+      <div className="w-full tablet:flex items-center px-4 grid gap-10">
         <div className="tablet:w-fit w-full flex gap-2 items-center justify-between">
           <div className="flex gap-2 items-center">
-            <span className=" bg-blue-100 rounded-full grid place-items-center p-2">
-              <BsTriangle size={20} color="white" className="leading-tight " />
-            </span>
-            <span className="font-semibold">
+            <Image
+              src={"/Assets/logo.png"}
+              width={20}
+              height={20}
+              alt="logo"
+              className=""
+            />
+            <span className="font-semibold leading-4">
               {path.split("/")[1].toUpperCase()}
             </span>
           </div>
@@ -34,7 +40,7 @@ const Dashboardnav = () => {
             type="text"
             name="itemname"
             placeholder={`Try searching "Products name"`}
-            className="tablet:w-[15rem] w-full p-1 px-2 bg-[transparent] outline-none text-sm "
+            className="tablet:w-[15rem] w-full p-1 px-2 bg-[transparent] outline-none text-sm"
           />
         </div>
       </div>

@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`w-full max-h-screen grid place-items-center overflow-hidden border-box ${roboto.className}`}
+        className={`w-full max-h-screen grid place-items-center overflow-hidden border-box font-sans`}
       >
         <Dashboardnav />
         <main className="w-full min-h-full grid laptop:grid-cols-6">

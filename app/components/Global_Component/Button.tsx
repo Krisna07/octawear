@@ -78,7 +78,7 @@ const Button: FC<ButtonProps> = ({
       onMouseLeave={handleMouseLeave}
       {...props}
     >
-      <div className="flex items-center  gap-2 relative  leading-tight z-20 ">
+      <div className="flex items-center  gap-2 relative z-20 leading-4 ">
         {children}
         {icon && !hoverIcon ? (
           <span>{Icon} </span>
