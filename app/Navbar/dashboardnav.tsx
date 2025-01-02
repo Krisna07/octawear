@@ -10,25 +10,25 @@ const Dashboardnav = () => {
   const path = usePathname();
   return (
     <div
-      className="w-full px-4 p-2 laptop:px-4 bg-beige-700 sticky top-0 z-[100] flex justify-between items-center text-dark gap-4"
+      className="w-full pt-2 p-4 box-border bg-beige-700 sticky top-0 z-[100] flex justify-between items-center text-dark gap-4"
       style={{ fontFamily: "Roboto, sans-serif" }}
     >
-      <div className="w-full tablet:flex items-center px-4 grid gap-10">
+      <div className="w-full tablet:flex items-center tablet:justify-between  grid tablet:gap-4 gap-2 ">
         <div className="tablet:w-fit w-full flex gap-2 items-center justify-between">
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-2 items-center ">
             <Image
               src={"/Assets/logo.png"}
               width={20}
               height={20}
               alt="logo"
-              className=""
+              className="w-full h-full"
             />
-            <span className="font-semibold leading-4">
+            <span className="font-semibold ">
               {path.split("/")[1].toUpperCase()}
             </span>
           </div>
-          <div className="flex tablet:hidden items-center gap-2 bg-[gray]/25 px-4 p-2 rounded-full">
-            <FaBars />
+          <div className="flex tablet:hidden items-center gap-2 bg-[gray]/25  p-2 rounded-full">
+            {/* <FaBars /> */}
             <span className="bg-blue-900 rounded-full grid place-items-center p-2">
               <BiUser />
             </span>
@@ -45,15 +45,15 @@ const Dashboardnav = () => {
         </div>
       </div>
       <div className="hidden tablet:flex gap-2 items-center">
-        <div className="hidden tablet:flex items-center gap-2 bg-[gray]/25 px-4 p-2 rounded-full">
-          <FaBars />
+        <div className="hidden tablet:flex items-center gap-2 bg-[gray]/25 p-2 rounded-full">
+          {/* <FaBars /> */}
           <span className="bg-blue-900 rounded-full grid place-items-center p-2">
             <BiUser />
           </span>
         </div>
-        <div className="bg-magenta-300 p-[12px] text-beige-600 rounded-full">
+        {/* <div className="bg-magenta-300 p-[12px] text-beige-600 rounded-full">
           <FaPlus size={20} />
-        </div>
+        </div> */}
       </div>
     </div>
   );

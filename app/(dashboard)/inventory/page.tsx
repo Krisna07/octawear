@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa6";
+import Productform from "./Productform";
 
 interface Product {
   id: number;
@@ -13,6 +14,7 @@ interface Product {
   category: string;
   brand: string;
   color: string;
+  image: File;
 }
 
 const Page: React.FC = () => {
@@ -26,6 +28,7 @@ const Page: React.FC = () => {
     category: "",
     brand: "",
     color: "",
+    image: new File([], ""),
   };
 
   const [products, setProducts] = useState<Product[]>([]);
@@ -81,8 +84,8 @@ const Page: React.FC = () => {
   );
 
   return (
-    <div className="w-full p-4">
-      <div className="flex items-end justify-between gap-4 border-b-2 border-gray-300 p-2 sticky top-0 left-0 bg-[white] z-20">
+    <div className="w-full h-full p-4 box-border">
+      <div className="flex items-end justify-between gap-4 border-b-2 border-gray-300 sticky top-0 left-0 bg-[white] z-20">
         <h2 className="text-2xl font-semibold leading-relaxed uppercase">
           Inventory
         </h2>
@@ -102,7 +105,9 @@ const Page: React.FC = () => {
           </button>
         </div>
       </div>
-      <div className="w-full overflow-x-auto relative z-10 hidescrollbar">
+
+      <div className="w-full h-[90vh] overflow-y-auto pb-16">
+        {/* <Productform /> */}
         <table className="w-full table-auto">
           <thead className="bg-gray-100 border-b-2 border-gray-300">
             <tr>

@@ -10,7 +10,7 @@ import { TbCoins, TbGraph } from "react-icons/tb";
 const Sidenav = () => {
   const menus = [
     { name: "Dashboard", icon: <MdDashboard />, route: "/dashboard" },
-    { name: "Analytics", icon: <TbGraph />, route: "/analytics" },
+    { name: "Customers", icon: <TbGraph />, route: "/customers" },
     { name: "Inventory", icon: <MdInventory />, route: "/inventory" },
     { name: "Transactions", icon: <TbCoins />, route: "/transactions" },
     { name: "Settings", icon: <CiSettings />, route: "/settings" },
@@ -43,9 +43,9 @@ const Sidenav = () => {
   const height = 100 / menus.length;
 
   return (
-    <div className="laptop:h-full    w-full sticky z-[99]  left-0 laptop:bg-beige-600  text-dark px-4 border-box flex flex-col gap-4 justify-between overflow-x-scroll hidescrollbar">
+    <div className="w-full laptop:h-full laptop:pr-16  left-0 laptop:bg-beige-600   text-dark  border-box flex flex-col gap-4 justify-between  laptop:w-64  bg-beige-600 box-border">
       <div
-        className="laptop:grid w-[max-content] flex gap-4 laptop:py-0 laptop:gap-0 py-2  text-2xl relative "
+        className="laptop:grid w-full flex gap-2  laptop:py-0 laptop:gap-0 py-2 px-4 text-2xl relative overflow-x-scroll hidescrollbar  "
         onMouseLeave={() => {
           setPath(route);
           getWidth(route.split("/")[1]);
@@ -112,9 +112,6 @@ const Sidenav = () => {
           <div className="w-full h-3/6 bg-blue-200 rounded-full px-2"></div>
         </div>
       </div>
-      {/* <div className="bg-[white] laptop:bg-beige-600 rounded-full laptop:rounded py-[4px] laptop:py-4 px-4 laptop:w-full w-fit hidden laptop:flex items-center gap-2 text-sm hover:bg-blue-600 transition-all duration-300 absolute bottom-20 left-0">
-        <BiLogOut /> Logout
-      </div> */}
     </div>
   );
 };
