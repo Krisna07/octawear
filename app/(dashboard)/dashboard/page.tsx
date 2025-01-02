@@ -28,21 +28,21 @@ const page = () => {
     },
   ];
   return (
-    <div className="w-full p-2">
+    <div className="w-full p-4">
       <div className="grid laptop:grid-cols-[4fr_1fr]  gap-4">
         <div className="w-full h-full rounded  grid gap-4">
           <div className="w-fit whitespace-nowrap flex items-center gap-2 rounded shadow-[0_0_2px_0_gray] relative px-2">
             <BiCalendar /> Today <FaChevronDown size={12} />
           </div>
           <div className="grid gap-4">
-            <div className="flex gap-4 flex-shrink">
+            <div className="w-full tablet:flex gap-4 flex-shrink items-center justify-between grid grid-cols-2">
               {summaryDatas.map((data, index) => (
                 <div
                   key={index}
                   className="w-full h-full grid gap-2  rounded shadow p-4 bg-blue-300/25"
                 >
                   <div className="flex items-center gap-2 ">
-                    <span className="text-sm">{data.title}</span>
+                    <span className="text-sm font-semibold">{data.title}</span>
                   </div>
                   <div className="w-full flex items-center justify-between gap-2">
                     <span className="text-dark-700 font-medium">

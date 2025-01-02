@@ -24,10 +24,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`h-screen border-box font-sans box-border overflow-hidden `}
+        className={`h-screen border-box font-sans box-border overflow-hidden`}
       >
         <Dashboardnav />
-        <div className="min-w-full h-full laptop:flex box-border ">
+        <div className="min-w-full h-full laptop:flex box-border overflow-hidden ">
           <Sidenav />
 
           <div className="w-full box-border">{children}</div>

@@ -22,8 +22,8 @@ const Sidenav = () => {
     return menus.findIndex((menu) => menu.route === route);
   };
 
-  const [width, setWidth] = useState(0);
-  const [left, setLeft] = useState(0);
+  const [width, setWidth] = useState();
+  const [left, setLeft] = useState();
 
   const getWidth = (classs: any) => {
     const element: any = document.querySelector(`.${classs}`);
@@ -93,24 +93,28 @@ const Sidenav = () => {
             className={`w-full h-1/2 rounded-tr rounded-br transition-all -left-[2px] duration-300 z-10 border-l-4 box-border grid place-items-center bg-dark-100 border-beige-300`}
           ></div>
         </div>
-        <div
-          style={{
-            width: `${width}px`,
-            left: `${left}px`,
-          }}
-          className={`h-full top-0 bottom-0 absolute laptop:hidden grid place-items-center box-border transition-all `}
-        >
-          <div className="w-full h-3/6 bg-blue-200/50 rounded-full px-2"></div>
-        </div>
-        <div
-          style={{
-            width: `${route === path && width}px`,
-            left: `${route === path && left}px`,
-          }}
-          className={`h-full top-0 bottom-0 absolute laptop:hidden grid place-items-center box-border transition-all `}
-        >
-          <div className="w-full h-3/6 bg-blue-200 rounded-full px-2"></div>
-        </div>
+        {width && (
+          <>
+            <div
+              style={{
+                width: `${width}px`,
+                left: `${left}px`,
+              }}
+              className={`h-full top-0 bottom-0 absolute laptop:hidden grid place-items-center box-border transition-all `}
+            >
+              <div className="w-full h-3/6 bg-blue-200/50 rounded-full px-2"></div>
+            </div>
+            <div
+              style={{
+                width: `${route === path && width}px`,
+                left: `${route === path && left}px`,
+              }}
+              className={`h-full top-0 bottom-0 absolute laptop:hidden grid place-items-center box-border transition-all `}
+            >
+              <div className="w-full h-3/6 bg-blue-200 rounded-full px-2"></div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

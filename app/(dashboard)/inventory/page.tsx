@@ -1,20 +1,20 @@
 "use client";
-import React, { useState } from "react";
-import { FaEdit } from "react-icons/fa";
-import { FaTrash } from "react-icons/fa6";
-import Productform from "./Productform";
+import React, { useState, useEffect } from "react";
+import { FaEdit, FaTrash } from "react-icons/fa";
+import AddProductForm from "./Forms/Addproductform";
 
 interface Product {
   id: number;
   name: string;
   description: string;
-  unit: string;
+  unit: number;
   price: number;
   productCode: string;
   category: string;
   brand: string;
   color: string;
-  image: File;
+  image: File | null;
+  gender: string;
 }
 
 const Page: React.FC = () => {
@@ -22,20 +22,28 @@ const Page: React.FC = () => {
     id: 0,
     name: "",
     description: "",
-    unit: "",
+    unit: 0,
     price: 0,
     productCode: "",
     category: "",
     brand: "",
     color: "",
-    image: new File([], ""),
+    image: null,
+    gender: "",
   };
 
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Product[]>(() => {
+    const savedProducts = localStorage.getItem("products");
+    return savedProducts ? JSON.parse(savedProducts) : [];
+  });
   const [editing, setEditing] = useState<boolean>(false);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [currentProduct, setCurrentProduct] = useState<Product>(initialProduct);
   const [newItem, setNewItem] = useState<boolean>(false);
+
+  useEffect(() => {
+    localStorage.setItem("products", JSON.stringify(products));
+  }, [products]);
 
   const addProduct = (product: Product) => {
     product.id = products.length + 1;
@@ -58,25 +66,7 @@ const Page: React.FC = () => {
 
   const editRow = (product: Product) => {
     setEditing(true);
-    setCurrentProduct({ ...product });
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setCurrentProduct({ ...currentProduct, [name]: value });
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (editing) {
-      updateProduct(currentProduct.id, currentProduct);
-    } else {
-      addProduct(currentProduct);
-    }
-  };
-
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
+    setCurrentProduct(product);
   };
 
   const filteredProducts = products.filter((product) =>
@@ -84,30 +74,31 @@ const Page: React.FC = () => {
   );
 
   return (
-    <div className="w-full h-full p-4 box-border">
-      <div className="flex items-end justify-between gap-4 border-b-2 border-gray-300 sticky top-0 left-0 bg-[white] z-20">
-        <h2 className="text-2xl font-semibold leading-relaxed uppercase">
+    <div className="w-full p-4 box-border relative">
+      <div className="tablet:flex p-2 items-center grid justify-between gap-4 border-b-2 border-gray-300  top-0 left-0 bg-[white] z-20">
+        <h2 className="text-xl font-semibold leading-relaxed uppercase">
           Inventory
         </h2>
         <div className="flex items-center gap-2">
           <input
             type="text"
             placeholder="Search..."
-            className="border border-gray-300 rounded p-1"
-            onChange={handleSearch}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="p-1 px-2 border border-gray-300 rounded-md"
           />
           <span className="text-gray-500">({products.length} items)</span>
           <button
-            onClick={() => setNewItem(true)}
-            className="bg-blue-500 text-white px-4 py-2 rounded"
+            onClick={() => setNewItem(!newItem)}
+            className="bg-blue-500 text-white px-4 py-1 rounded"
           >
             Add Product
           </button>
+          {newItem && <AddProductForm addProduct={addProduct} />}
         </div>
       </div>
 
       <div className="w-full h-[90vh] overflow-y-auto pb-16">
-        {/* <Productform /> */}
         <table className="w-full table-auto">
           <thead className="bg-gray-100 border-b-2 border-gray-300">
             <tr>
@@ -129,7 +120,9 @@ const Page: React.FC = () => {
                 <td className="p-2 text-left sticky left-0 bg-white">
                   {index + 1}
                 </td>
-                <td className="p-2 text-left">{product.name}</td>
+                <td className="p-2 text-left" contentEditable="true">
+                  {product.name}
+                </td>
                 <td className="p-2 text-left max-w-[40ch] overflow-hidden overflow-x-auto hidescrollbar whitespace-nowrap">
                   {product.description}
                 </td>
@@ -155,110 +148,7 @@ const Page: React.FC = () => {
           </tbody>
         </table>
       </div>
-      {editing && (
-        <div className=" w-fit mt-4 p-4 border rounded shadow-lg bg-white absolute top-20  right-0 bg-[white] z-50">
-          <h3 className="text-xl font-bold mb-2">Edit Product</h3>
-          <form onSubmit={handleSubmit} className="flex flex-col gap-2">
-            <input type="hidden" name="id" value={currentProduct.id} />
-            <label>Name:</label>
-            <input
-              type="text"
-              name="name"
-              value={currentProduct.name}
-              onChange={handleInputChange}
-            />
-            <label>Description:</label>
-            <input
-              type="text"
-              name="description"
-              value={currentProduct.description}
-              onChange={handleInputChange}
-            />
-            <label>Product Code:</label>
-            <input
-              type="text"
-              name="productCode"
-              value={currentProduct.productCode}
-              onChange={handleInputChange}
-            />
-            <label>Unit:</label>
-            <input
-              type="text"
-              name="unit"
-              value={currentProduct.unit}
-              onChange={handleInputChange}
-            />
-            <label>Price:</label>
-            <input
-              type="text"
-              name="price"
-              value={currentProduct.price}
-              onChange={handleInputChange}
-            />
-            <button
-              type="submit"
-              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
-            >
-              Update
-            </button>
-          </form>
-        </div>
-      )}
-      {newItem && (
-        <div className=" w-fit mt-4 p-4 border rounded shadow-lg bg-white absolute top-20  right-0 bg-[white] z-50">
-          <h3 className="text-xl font-bold mb-2">Add Product</h3>
-          <form onSubmit={handleSubmit} className="flex flex-col gap-2">
-            <input type="hidden" name="id" value={currentProduct.id} />
-            <label>Name:</label>
-            <input
-              type="text"
-              name="name"
-              value={currentProduct.name}
-              onChange={handleInputChange}
-            />
-            <label>Description:</label>
-            <input
-              type="text"
-              name="description"
-              value={currentProduct.description}
-              onChange={handleInputChange}
-            />
-            <label>Product Code:</label>
-            <input
-              type="text"
-              name="productCode"
-              value={currentProduct.productCode}
-              onChange={handleInputChange}
-            />
-            <label>Unit:</label>
-            <input
-              type="text"
-              name="unit"
-              value={currentProduct.unit}
-              onChange={handleInputChange}
-            />
-            <label>Price:</label>
-            <input
-              type="text"
-              name="price"
-              value={currentProduct.price}
-              onChange={handleInputChange}
-            />
-            <button
-              type="submit"
-              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
-            >
-              Add
-            </button>
-            <button
-              onClick={() => setNewItem(false)}
-              className="mt-4 px-4 py-2 bg-red-500 text-white rounded bg-[red]/25"
-            >
-              Cancel
-            </button>
-          </form>
-        </div>
-      )}
+      {editing && <AddProductForm addProduct={addProduct} />}
     </div>
   );
 };
